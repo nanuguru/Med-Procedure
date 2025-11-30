@@ -1,0 +1,23 @@
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+pydantic>=2.4.0,<3.0.0
+pydantic-settings>=2.0.0
+langchain>=0.1.0
+langgraph>=0.0.20
+phidata>=2.0.0
+groq>=0.4.0
+google-search-results==2.4.2
+duckduckgo-search>=4.1.1
+httpx==0.25.2
+python-dotenv==1.0.0
+structlog==23.2.0
+prometheus-client==0.19.0
+# Optional: OpenTelemetry for distributed tracing (can be skipped if causing issues)
+# opentelemetry-api>=1.0.0
+# opentelemetry-sdk>=1.0.0
+# opentelemetry-instrumentation-fastapi>=0.40b0
+# opentelemetry-exporter-prometheus>=0.50b0
+redis==5.0.1
+aiofiles==23.2.1
+python-multipart==0.0.6
+
