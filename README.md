@@ -339,10 +339,4 @@ Procedures performed at patient's residence with minimal equipment and environme
 - Always follow your institution's protocols and guidelines
 - Consult official clinical guidelines for complete and verified procedures
 
-🌐 **Language:**
-- All search results are configured to return English-only content
-- Responses are generated in English
 
-## License
-
-MIT License
