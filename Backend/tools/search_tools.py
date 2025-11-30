@@ -45,7 +45,9 @@ class GoogleSearchTool:
                         "q": enhanced_query,
                         "api_key": self.api_key,
                         "num": num_results,
-                        "engine": "google"
+                        "engine": "google",
+                        "hl": "en",  # Host language: English
+                        "gl": "us"   # Country: United States (for English results)
                     }
                 )
                 response.raise_for_status()
@@ -137,12 +139,13 @@ Please provide:
 6. Common complications and how to address them
 
 Format the response as a structured procedure guide suitable for nurses and certified home-health caregivers.
-Important: Do not provide medical diagnoses or prescriptions. Focus on procedural steps and safety protocols."""
+Important: Do not provide medical diagnoses or prescriptions. Focus on procedural steps and safety protocols.
+CRITICAL: Respond ONLY in English. All content must be in English language."""
 
             response = await client.chat.completions.create(
                 model=self.model,
                 messages=[
-                    {"role": "system", "content": "You are a clinical procedure expert helping nurses and caregivers."},
+                    {"role": "system", "content": "You are a clinical procedure expert helping nurses and caregivers. Always respond in English only."},
                     {"role": "user", "content": prompt}
                 ],
                 temperature=0.3,
@@ -215,7 +218,8 @@ class DuckDuckGoSearchTool:
             with DDGS() as ddgs:
                 search_results = ddgs.text(
                     enhanced_query,
-                    max_results=num_results
+                    max_results=num_results,
+                    region="us-en"  # Region: United States - English
                 )
                 
                 for item in search_results:

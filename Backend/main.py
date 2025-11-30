@@ -87,23 +87,9 @@ class SessionStatusResponse(BaseModel):
     result: Optional[Dict[str, Any]] = None
 
 
-@app.get("/")
-async def root():
-    """Root endpoint"""
-    return {
-        "name": settings.app_name,
-        "version": settings.app_version,
-        "status": "running"
-    }
 
 
-@app.get("/health")
-async def health_check():
-    """Health check endpoint"""
-    return {"status": "healthy"}
-
-
-@app.post("/api/v1/procedures", response_model=ServiceResponse)
+@app.post("/procedures", response_model=ServiceResponse)
 async def get_procedures(
     request: ServiceRequest,
     background_tasks: BackgroundTasks
@@ -165,7 +151,7 @@ async def get_procedures(
         raise HTTPException(status_code=500, detail=str(e))
 
 
-@app.get("/api/v1/sessions/{session_id}", response_model=SessionStatusResponse)
+@app.get("/sessions/{session_id}", response_model=SessionStatusResponse)
 async def get_session_status(session_id: str):
     """Get the status of a processing session"""
     try:
@@ -193,7 +179,7 @@ async def get_session_status(session_id: str):
         raise HTTPException(status_code=500, detail=str(e))
 
 
-@app.post("/api/v1/sessions/{session_id}/pause")
+@app.post("/sessions/{session_id}/pause") 
 async def pause_session(session_id: str):
     """Pause a long-running agent operation"""
     try:
@@ -208,7 +194,7 @@ async def pause_session(session_id: str):
         raise HTTPException(status_code=500, detail=str(e))
 
 
-@app.post("/api/v1/sessions/{session_id}/resume")
+@app.post("/sessions/{session_id}/resume")
 async def resume_session(session_id: str):
     """Resume a paused agent operation"""
     try:
@@ -223,7 +209,7 @@ async def resume_session(session_id: str):
         raise HTTPException(status_code=500, detail=str(e))
 
 
-@app.get("/api/v1/metrics")
+@app.get("/metrics")
 async def get_metrics():
     """Get application metrics"""
     return metrics.get_metrics()
@@ -234,7 +220,7 @@ if __name__ == "__main__":
     uvicorn.run(
         "main:app",
         host="0.0.0.0",
-        port=8000,
+        port=8080,
         reload=True,
         log_level=settings.log_level.lower()
     )
