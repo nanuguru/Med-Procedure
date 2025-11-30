@@ -1,5 +1,5 @@
 """
-Configuration settings for NurseSOP Live
+Configuration settings for Med Procedure
 """
 from pydantic_settings import BaseSettings
 from typing import Optional
@@ -9,7 +9,7 @@ class Settings(BaseSettings):
     """Application settings"""
     
     # App Configuration
-    app_name: str = "NurseSOP Live"
+    app_name: str = "Med Procedure"
     app_version: str = "1.0.0"
     log_level: str = "INFO"
     
@@ -25,7 +25,7 @@ class Settings(BaseSettings):
     # LangSmith Configuration
     langchain_api_key: Optional[str] = None
     langchain_tracing_v2: bool = True
-    langchain_project: str = "NurseSOP-Live"
+    langchain_project: str = "Med-Procedure"
     
     # Redis Configuration
     redis_host: str = "localhost"

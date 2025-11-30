@@ -12,52 +12,52 @@ class MetricsCollector:
     def __init__(self):
         # Request metrics
         self.request_count = Counter(
-            "nursesop_requests_total",
+            "med_requests_total",
             "Total number of requests",
             ["endpoint", "status"]
         )
         
         self.request_duration = Histogram(
-            "nursesop_request_duration_seconds",
+            "med_request_duration_seconds",
             "Request duration in seconds",
             ["endpoint"]
         )
         
         # Agent metrics
         self.agent_operations = Counter(
-            "nursesop_agent_operations_total",
+            "med_agent_operations_total",
             "Total agent operations",
             ["agent_type", "operation", "status"]
         )
         
         self.agent_duration = Histogram(
-            "nursesop_agent_duration_seconds",
+            "med_agent_duration_seconds",
             "Agent operation duration",
             ["agent_type"]
         )
         
         # Tool metrics
         self.tool_usage = Counter(
-            "nursesop_tool_usage_total",
+            "med_tool_usage_total",
             "Tool usage count",
             ["tool_name", "status"]
         )
         
         self.tool_duration = Histogram(
-            "nursesop_tool_duration_seconds",
+            "med_tool_duration_seconds",
             "Tool execution duration",
             ["tool_name"]
         )
         
         # Session metrics
         self.active_sessions = Gauge(
-            "nursesop_active_sessions",
+            "med_active_sessions",
             "Number of active sessions"
         )
         
         # Memory metrics
         self.memory_operations = Counter(
-            "nursesop_memory_operations_total",
+            "med_memory_operations_total",
             "Memory operations",
             ["operation"]
         )

@@ -1,5 +1,5 @@
 """
-Run script for NurseSOP Live
+Run script for Med Procedure
 """
 import uvicorn
 from config import settings

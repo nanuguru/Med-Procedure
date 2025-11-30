@@ -1,2 +1,2 @@
-"""Services module for NurseSOP Live"""
+"""Services module for Med Procedure"""
 

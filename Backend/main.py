@@ -1,5 +1,5 @@
 """
-NurseSOP Live - Main FastAPI Application
+Med Procedure - Main FastAPI Application
 AI-agent system for nurses and certified home-health caregivers
 """
 from fastapi import FastAPI, HTTPException, BackgroundTasks
@@ -42,9 +42,9 @@ agent_orchestrator = AgentOrchestrator(
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     """Application lifespan manager"""
-    logger.info("Starting NurseSOP Live application")
+    logger.info("Starting Med Procedure application")
     yield
-    logger.info("Shutting down NurseSOP Live application")
+    logger.info("Shutting down Med Procedure application")
 
 
 app = FastAPI(
